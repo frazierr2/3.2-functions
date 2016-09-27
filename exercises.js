@@ -5,39 +5,90 @@
 // ---------------------
 // Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
 // ---------------------
-
-function max(){
+  // *****QUESTION #1*****
+function max(num1,num2){
     "use strict";
+   if(num1 > num2){
+     return num1;
+   }else{
+     return num2;
+   }
+
     //...
 }
+var number1 = 10;
+var number2 = 20;
+var largest = max (number1,number2);
+console.assert(largest == 20);
+console.log(largest);
+
 
 // ---------------------
 // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
 // ---------------------
-
-function maxOfThree(){
+//*****QUESTION #2*****
+function maxOfThree(num1,num2,num3){
     "use strict";
-    //...
+
+    var biggest = [num1, num2, num3];
+    var max = Math.max.apply(null,biggest);
+    return max;
 }
+var number1 = 5;
+var number2 = 10;
+var number3 = 15;
+var largest = maxOfThree(number1,number2,number3);
+console.log(largest);
+console.assert(largest == 15);
+
 
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
 
+//******QUESTION 3******
 function isVowel(char){
     "use strict";
     //...
+    if(char =='a'||char =='e'||char =='i'||char =='o'||char =='u'||char =='A'||char =='E'||char =='I'||char =='U'||char =='O'){
+      return true;
+    }else{
+      return false;
+    }
 }
+
+var letter = 'o';
+var vowel = isVowel(letter);
+console.log(vowel);
+console.assert(vowel == true);
+console.assert(isVowel('b') == false);
 
 // ---------------------
 // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
 
+//******QUESTION 4********
 function rovarspraket(phrase){
     "use strict";
-    //...
+    var newPhrase = '';
+
+    for(var i = 0; i < phrase.length; i++){
+      var phaseChar = phrase[i];
+
+      if(isVowel(phaseChar)|| phaseChar ==' '){
+        newPhrase += phaseChar;
+      }else{
+        newPhrase += phaseChar + 'o' +phaseChar;
+      }
+      console.log(newPhrase);
+    }
+      return newPhrase;
+  //...
 }
 
+ var word = 'this is fun';
+ var newWord = rovarspraket(word);
+ console.assert( newWord == 'tothohisos isos fofunon');
 // ---------------------
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
