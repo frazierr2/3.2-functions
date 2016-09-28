@@ -93,24 +93,44 @@ function rovarspraket(phrase){
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
 
-function sum(){
+function sum(add){
     "use strict";
-    //...
+    var total = add.reduce(function(a,b){
+   return a + b;
+ }, 0);
+    return total;
+
 }
 
-function multiply(){
+function multiply(times){
     "use strict";
-    //...
+    var timesTotal = times.reduce(function(a,b){
+   return a * b;
+ });
+    return timesTotal;
 }
+
+var sumAll = [1,2,3,4];
+var multiplyAll = [1,2,3,4];
+var func1 = sum(sumAll);
+var func2 = multiply(multiplyAll)
+console.assert(func1 == '10');
+console.log(func1);
+console.assert(func2 == '24');
+console.log(func2);
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
-function reverse(){
+function reverse(s){
     "use strict";
-    //...
+    return s.split('').reverse().join('');
 }
+var wordToReverse = 'hello';
+var backwordsWord = reverse(wordToReverse);
+console.assert(backwordsWord == 'olleh');
+console.log(backwordsWord);
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -118,8 +138,18 @@ function reverse(){
 
 function findLongestWord(words){
     "use strict";
-    //...
+    var totalLetters = words.sort(function (a,b) {
+      return b.length - a.length
+    });
+  // alert(totalLetters[0]);
+  return totalLetters[0];
 }
+
+var whichIs = ['which','word','is','bigger'];
+var longest = findLongestWord(whichIs);
+console.log(longest);
+console.assert(longest == 'bigger');
+// console.assert(longest == 'which');
 
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
