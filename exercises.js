@@ -154,6 +154,11 @@ console.assert(longest == 'bigger');
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
+function filterLongWords(words, i){
+
+
+}
+
 
 function filterLongWords(words, i){
     "use strict";
@@ -163,7 +168,6 @@ function filterLongWords(words, i){
 
 
 }
-
 var letters = ['take','the','longer','words'];
 var num = 4;
 var theWinnerIs = filterLongWords(letters, num);
@@ -179,20 +183,31 @@ console.log(theWinnerIs);
 
 function charFreq(string){
     "use strict";
-
-    var stringArray = string.split("");
-    var frequencies = {};
-    for (var k in stringArray) {
-        var nowLetter = stringArray[k];
-        if (stringArray.hasOwnProperty(k)) {
-            if(frequencies[nowLetter] === undefined)
-                frequencies[nowLetter] = 0;
-            frequencies[nowLetter] += 1;
-        }
+    var freq = {};
+    for(var i=0; i < string.length; i++){
+      var char = string[i];
+      if(freq[char]){
+        freq[char] += 1;
+      }else{
+        freq[char] =1;
+      }
     }
-    return frequencies;
+    // var stringArray = string.split("");
+    // var frequencies = {};
+    // for (var k in stringArray) {
+    //     var nowLetter = stringArray[k];
+    //     if (stringArray.hasOwnProperty(k)) {
+    //         if(frequencies[nowLetter] === undefined)
+    //             frequencies[nowLetter] = 0;
+    //         frequencies[nowLetter] += 1;
+    //     }
+    // }
+    // return frequencies;
+      return freq;
+
+
  }
 var sentence = "abbabcbdbabdbdbabababcbcbab";
 var recurrence = charFreq(sentence);
-console.assert(recurrence == '{a: 7, b: 14, c: 3, d: 3}');
+console.assert(recurrence == {'a': 7, 'b': 14, 'c': 3, 'd': 3});
 console.log(recurrence);
