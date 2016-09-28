@@ -157,14 +157,42 @@ console.assert(longest == 'bigger');
 
 function filterLongWords(words, i){
     "use strict";
-    //...
+    for (var i = 0; i < words.length; i++){
+      console.log(words[i]);
+    }
+
+
 }
+
+var letters = ['take','the','longer','words'];
+var num = 4;
+var theWinnerIs = filterLongWords(letters, num);
+console.log(theWinnerIs);
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
+
+
+//I used http://jsfiddle.net/xbUtR/ to help me with this problem. I could not get the assert to work but believe i didn't word it right.
+
 function charFreq(string){
     "use strict";
-    //...
-}
+
+    var stringArray = string.split("");
+    var frequencies = {};
+    for (var k in stringArray) {
+        var nowLetter = stringArray[k];
+        if (stringArray.hasOwnProperty(k)) {
+            if(frequencies[nowLetter] === undefined)
+                frequencies[nowLetter] = 0;
+            frequencies[nowLetter] += 1;
+        }
+    }
+    return frequencies;
+ }
+var sentence = "abbabcbdbabdbdbabababcbcbab";
+var recurrence = charFreq(sentence);
+console.assert(recurrence == '{a: 7, b: 14, c: 3, d: 3}');
+console.log(recurrence);
