@@ -151,27 +151,34 @@ console.log(longest);
 console.assert(longest == 'bigger');
 // console.assert(longest == 'which');
 
+// INSIDE FUNCTION::::::
+// var lengthOfLongestWord = 0;
+// for (var i = 0; i < words.length; i++) {
+//   var word = words[i];
+//   if (word.length > lengthOfLongestWord) {
+//     lengthOfLongestWord = word.length;
+//   }
+// }
+
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
-function filterLongWords(words, i){
-
-
-}
-
-
-function filterLongWords(words, i){
-    "use strict";
-    for (var i = 0; i < words.length; i++){
-      console.log(words[i]);
+function filterLongWords(words, maxLength){
+  var listOfLongWords = [];
+  for (var i = 0; i < words.length; i++) {
+     var word = words[i];
+    if (word.length > maxLength) {
+      listOfLongWords.push(word);
     }
 
-
+  }
+    return listOfLongWords;
 }
-var letters = ['take','the','longer','words'];
-var num = 4;
-var theWinnerIs = filterLongWords(letters, num);
-console.log(theWinnerIs);
+
+var result =filterLongWords(['a','the','b'],2)
+console.assert(filterLongWords(['a','the','b'],2));
+ console.assert(result.length === 1)
+ console.log(result);
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
@@ -192,17 +199,7 @@ function charFreq(string){
         freq[char] =1;
       }
     }
-    // var stringArray = string.split("");
-    // var frequencies = {};
-    // for (var k in stringArray) {
-    //     var nowLetter = stringArray[k];
-    //     if (stringArray.hasOwnProperty(k)) {
-    //         if(frequencies[nowLetter] === undefined)
-    //             frequencies[nowLetter] = 0;
-    //         frequencies[nowLetter] += 1;
-    //     }
-    // }
-    // return frequencies;
+
       return freq;
 
 
